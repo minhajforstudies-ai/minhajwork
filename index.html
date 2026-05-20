@@ -1,0 +1,1647 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة منهاج - تنظيم العمل والإنتاجية مع المساعد الذكي</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Tajawal for UI, Amiri for Islamic Elegant Titles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom styling & Tailwind configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        islamic: {
+                            50: '#f4f7f5',
+                            100: '#e3ece7',
+                            200: '#cbdad1',
+                            500: '#1e463a', // Deep Emerald
+                            600: '#17372d',
+                            700: '#112921',
+                            gold: '#c5a880', // Elegant Gold Accent
+                            sand: '#faf8f5', // Soft Warm Background
+                            dark: '#2c3531'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Tajawal', 'sans-serif'],
+                        serif: ['Amiri', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #faf8f5;
+            color: #2c3531;
+        }
+        .islamic-pattern {
+            background-color: #faf8f5;
+            background-image: radial-gradient(#1e463a 0.5px, transparent 0.5px), radial-gradient(#1e463a 0.5px, #faf8f5 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            opacity: 0.03;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col relative overflow-x-hidden">
+
+    <!-- Soft Islamic background texture layer -->
+    <div class="absolute inset-0 islamic-pattern pointer-events-none z-0"></div>
+
+    <!-- Header -->
+    <header class="relative z-10 border-b border-islamic-100 bg-white/80 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full bg-islamic-500 flex items-center justify-center text-islamic-gold text-2xl shadow-md border-2 border-islamic-gold/30">
+                    <span class="font-serif font-bold">م</span>
+                </div>
+                <div>
+                    <h1 class="font-serif text-2xl font-bold text-islamic-500 tracking-wide">مُؤسَّسَة مِنْهَاج</h1>
+                    <p class="text-xs text-gray-500">منصة تنظيم الساعات والإنتاجية مدعومة بالذكاء الاصطناعي</p>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <div class="text-left sm:text-right">
+                    <p class="text-xs text-gray-400">نظام العمل الحالي</p>
+                    <p class="text-sm font-semibold text-islamic-500">4 ساعات يومياً • 6 أيام أسبوعياً</p>
+                </div>
+                <div class="h-8 w-px bg-gray-200 hidden sm:block"></div>
+                <!-- Current Time and Islamic Welcome -->
+                <div class="bg-islamic-50 py-1.5 px-4 rounded-full border border-islamic-100 text-xs font-medium text-islamic-600 flex items-center gap-2">
+                    <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span id="current-date-hijri">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="relative z-10 flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- Statistics & Counter Summary Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            
+            <!-- Card 1: Daily Target -->
+            <div class="bg-white rounded-2xl p-6 border border-islamic-100 shadow-sm relative overflow-hidden group hover:shadow-md transition">
+                <div class="absolute top-0 right-0 w-16 h-16 bg-islamic-50 rounded-bl-full flex justify-end items-start p-3 text-islamic-gold/50 group-hover:text-islamic-gold transition">
+                    <i class="fa-solid fa-calendar-day text-lg"></i>
+                </div>
+                <p class="text-sm text-gray-500 font-medium mb-1">الهدف اليومي</p>
+                <h3 class="text-3xl font-bold text-islamic-500">4 <span class="text-sm font-normal text-gray-400">ساعات</span></h3>
+                <div class="mt-4 text-xs text-emerald-600 font-medium flex items-center gap-1">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <span>معدل ثابت لتجنب الإرهاق</span>
+                </div>
+            </div>
+
+            <!-- Card 2: Weekly Hours Balance -->
+            <div class="bg-white rounded-2xl p-6 border border-islamic-100 shadow-sm relative overflow-hidden group hover:shadow-md transition">
+                <p class="text-sm text-gray-500 font-medium mb-1">الساعات الأسبوعية المتبقية</p>
+                <div class="flex justify-between items-baseline mb-2">
+                    <h3 class="text-3xl font-bold text-islamic-500" id="weekly-remaining-text">24.00 <span class="text-sm font-normal text-gray-400">ساعة</span></h3>
+                    <span class="text-xs bg-islamic-50 text-islamic-500 py-0.5 px-2 rounded-full font-bold" id="weekly-percent">0% منجز</span>
+                </div>
+                <!-- Progress Bar -->
+                <div class="w-full bg-gray-100 rounded-full h-2">
+                    <div id="weekly-progress-bar" class="bg-islamic-gold h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
+                </div>
+                <div class="mt-3 flex justify-between text-[11px] text-gray-400">
+                    <span>المنجز: <strong id="weekly-done">0 س</strong></span>
+                    <span>الهدف الأسبوعي: 24 ساعة</span>
+                </div>
+            </div>
+
+            <!-- Card 3: Monthly Hours Balance -->
+            <div class="bg-white rounded-2xl p-6 border border-islamic-100 shadow-sm relative overflow-hidden group hover:shadow-md transition">
+                <p class="text-sm text-gray-500 font-medium mb-1">الساعات الشهرية المتبقية</p>
+                <div class="flex justify-between items-baseline mb-2">
+                    <h3 class="text-3xl font-bold text-islamic-500" id="monthly-remaining-text">96.00 <span class="text-sm font-normal text-gray-400">ساعة</span></h3>
+                    <span class="text-xs bg-islamic-50 text-islamic-500 py-0.5 px-2 rounded-full font-bold" id="monthly-percent">0% منجز</span>
+                </div>
+                <!-- Progress Bar -->
+                <div class="w-full bg-gray-100 rounded-full h-2">
+                    <div id="monthly-progress-bar" class="bg-islamic-500 h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
+                </div>
+                <div class="mt-3 flex justify-between text-[11px] text-gray-400">
+                    <span>المنجز: <strong id="monthly-done">0 س</strong></span>
+                    <span>الهدف الشهري: 96 ساعة</span>
+                </div>
+            </div>
+
+            <!-- Card 4: Accumulated Statistics Summary -->
+            <div class="bg-white rounded-2xl p-6 border border-islamic-100 shadow-sm relative overflow-hidden group hover:shadow-md transition">
+                <p class="text-sm text-gray-500 font-medium mb-1">جلسات العمل المسجلة</p>
+                <h3 class="text-3xl font-bold text-islamic-500" id="total-sessions-count">0 <span class="text-sm font-normal text-gray-400">جلسة</span></h3>
+                <div class="mt-4 flex justify-between items-center">
+                    <span class="text-xs text-gray-400">متوسط طول الجلسة: <strong id="avg-session-duration">0 د</strong></span>
+                    <button onclick="resetAllDataConfirmation()" class="text-red-500 hover:text-red-700 text-xs flex items-center gap-1 font-medium transition">
+                        <i class="fa-solid fa-trash-can"></i> مسح البيانات
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Center Interaction Area: Timer & Logging Form -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- Column 1: Timer Controls -->
+            <div class="lg:col-span-1 flex flex-col gap-6">
+                <!-- Session Timer Box -->
+                <div class="bg-white rounded-2xl p-8 border border-islamic-100 shadow-md relative overflow-hidden flex flex-col items-center justify-center text-center">
+                    <!-- Subtle islamic background emblem -->
+                    <div class="absolute -bottom-10 -left-10 w-40 h-40 border border-islamic-100 rounded-full opacity-10 pointer-events-none"></div>
+                    <div class="absolute -top-10 -right-10 w-40 h-40 border border-islamic-100 rounded-full opacity-10 pointer-events-none"></div>
+
+                    <h4 class="font-serif text-lg text-islamic-gold font-bold mb-2">مُؤقّت الجَلسَة الحَاليّة</h4>
+                    <p class="text-xs text-gray-400 mb-6">احرص على أخذ استراحة قصيرة كل ساعتين عمل</p>
+
+                    <!-- Huge Clock Visualizer -->
+                    <div class="w-48 h-48 rounded-full border-4 border-islamic-50 flex flex-col items-center justify-center bg-islamic-50/30 relative mb-6 shadow-inner">
+                        <!-- Ripple effect during active timer -->
+                        <div id="timer-ripple" class="absolute inset-0 rounded-full border-2 border-islamic-gold/30 animate-ping hidden"></div>
+                        <span id="timer-display" class="text-4xl font-mono font-bold text-islamic-500 tracking-wider">00:00:00</span>
+                        <span id="timer-status" class="text-[10px] text-gray-400 uppercase tracking-widest mt-1">متوقف مؤقتاً</span>
+                    </div>
+
+                    <!-- Timer Action Buttons -->
+                    <div class="flex gap-4 w-full mb-4">
+                        <button id="btn-toggle-timer" onclick="toggleTimer()" class="flex-1 bg-islamic-500 hover:bg-islamic-600 text-white font-medium py-3 px-4 rounded-xl shadow-sm hover:shadow-md transition flex items-center justify-center gap-2">
+                            <i id="btn-icon" class="fa-solid fa-play text-sm text-islamic-gold"></i>
+                            <span id="btn-text">ابدأ العمل</span>
+                        </button>
+                        
+                        <button id="btn-reset-timer" onclick="resetTimer()" class="bg-gray-100 hover:bg-gray-200 text-gray-600 font-medium py-3 px-4 rounded-xl transition flex items-center justify-center" title="إعادة تعيين">
+                            <i class="fa-solid fa-rotate-left"></i>
+                        </button>
+                    </div>
+
+                    <!-- Finish Session Prompt -->
+                    <button id="btn-finish-session" onclick="openLoggingModal()" class="w-full bg-islamic-gold/10 hover:bg-islamic-gold/20 text-islamic-600 font-bold py-2.5 px-4 rounded-xl border border-islamic-gold/30 transition flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                        <i class="fa-solid fa-circle-check"></i>
+                        إنهاء الجلسة وتقييد الإنجاز
+                    </button>
+                </div>
+
+                <!-- Custom Targets & AI Key Customizer -->
+                <div class="bg-white rounded-2xl p-6 border border-islamic-100 shadow-sm space-y-4">
+                    <h4 class="text-sm font-bold text-islamic-500 mb-1 flex items-center gap-2">
+                        <i class="fa-solid fa-sliders text-islamic-gold"></i> تخصيص الأهداف والإعدادات
+                    </h4>
+                    <div class="space-y-3">
+                        <div>
+                            <label class="block text-xs text-gray-500 mb-1">الهدف الأسبوعي بالساعات:</label>
+                            <input id="input-weekly-target" type="number" value="24" min="1" max="100" class="w-full bg-islamic-50 border border-islamic-100 rounded-xl py-1.5 px-3 text-sm focus:outline-none focus:ring-1 focus:ring-islamic-500" onchange="updateCustomTargets()">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-gray-500 mb-1">الهدف الشهري بالساعات:</label>
+                            <input id="input-monthly-target" type="number" value="96" min="1" max="400" class="w-full bg-islamic-50 border border-islamic-100 rounded-xl py-1.5 px-3 text-sm focus:outline-none focus:ring-1 focus:ring-islamic-500" onchange="updateCustomTargets()">
+                        </div>
+                        <div class="border-t border-islamic-50 pt-3">
+                            <label class="block text-xs font-semibold text-islamic-600 mb-2">تسجيل ساعات عمل سابقة (رصيد مدور):</label>
+                            <div class="grid grid-cols-2 gap-2">
+                                <div>
+                                    <label class="block text-[10px] text-gray-500 mb-1">منجزة هذا الأسبوع:</label>
+                                    <div class="flex items-center">
+                                        <input id="input-prior-weekly" type="number" value="0" min="0" step="0.5" class="w-full bg-islamic-50 border border-islamic-100 rounded-r-xl py-1 px-2 text-xs focus:outline-none focus:ring-1 focus:ring-islamic-500">
+                                        <span class="bg-gray-100 border border-r-0 border-islamic-100 text-gray-500 text-[10px] py-1 px-2 rounded-l-xl">س</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] text-gray-500 mb-1">منجزة هذا الشهر (الإجمالي):</label>
+                                    <div class="flex items-center">
+                                        <input id="input-prior-monthly" type="number" value="0" min="0" step="0.5" class="w-full bg-islamic-50 border border-islamic-100 rounded-r-xl py-1 px-2 text-xs focus:outline-none focus:ring-1 focus:ring-islamic-500">
+                                        <span class="bg-gray-100 border border-r-0 border-islamic-100 text-gray-500 text-[10px] py-1 px-2 rounded-l-xl">س</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button onclick="savePriorHours()" class="mt-2 w-full bg-islamic-100 hover:bg-islamic-200 text-islamic-600 text-xs font-medium py-1.5 rounded-lg transition flex items-center justify-center gap-1 border border-islamic-200">
+                                <i class="fa-solid fa-plus text-[10px]"></i> إضافة للرصيد المنجز
+                            </button>
+                        </div>
+                        <div class="border-t border-islamic-50 pt-3">
+                            <div class="flex justify-between items-center mb-1">
+                                <label class="block text-xs text-gray-500">مفتاح Gemini API (اختياري):</label>
+                                <span class="text-[10px] text-emerald-600 font-semibold bg-emerald-50 px-1.5 py-0.5 rounded">تلقائي نشط</span>
+                            </div>
+                            <input id="input-gemini-key" type="password" placeholder="أدخل مفتاحك الخاص إذا أردت..." class="w-full bg-islamic-50 border border-islamic-100 rounded-xl py-1.5 px-3 text-xs focus:outline-none focus:ring-1 focus:ring-islamic-500" onchange="saveApiKey()">
+                            <p class="text-[10px] text-gray-400 mt-1">يتم حفظ المفتاح محلياً وبأمان تام في متصفحك.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 2: Log Form & Document Upload (Spans 2 columns) -->
+            <div class="lg:col-span-2 flex flex-col gap-6">
+                <!-- Log Entry and Document Section -->
+                <div class="bg-white rounded-2xl p-6 border border-islamic-100 shadow-sm flex flex-col justify-between h-full">
+                    <div>
+                        <div class="flex items-center justify-between border-b border-islamic-50 pb-4 mb-4">
+                            <h3 class="font-serif text-lg font-bold text-islamic-500 flex items-center gap-2">
+                                <i class="fa-solid fa-pen-fancy text-islamic-gold"></i> تقييد فترة عمل فورية (يدوياً)
+                            </h3>
+                            <span class="text-xs text-gray-400">في حال لم تسجل باستخدام المؤقت</span>
+                        </div>
+
+                        <form id="manual-log-form" onsubmit="handleManualLogSubmit(event)" class="space-y-4">
+                            <!-- Duration and Date Row -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-gray-600 mb-1">مدة العمل (بالساعات والدقائق):</label>
+                                    <div class="flex gap-2">
+                                        <div class="flex-1">
+                                            <input required id="manual-hours" type="number" min="0" max="23" placeholder="ساعات" class="w-full bg-islamic-50 border border-islamic-100 rounded-xl py-2 px-3 text-sm focus:outline-none focus:ring-1 focus:ring-islamic-500 text-center">
+                                        </div>
+                                        <div class="flex-1">
+                                            <input required id="manual-minutes" type="number" min="0" max="59" placeholder="دقائق" class="w-full bg-islamic-50 border border-islamic-100 rounded-xl py-2 px-3 text-sm focus:outline-none focus:ring-1 focus:ring-islamic-500 text-center">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-gray-600 mb-1">التاريخ والوقت:</label>
+                                    <input required id="manual-date" type="datetime-local" class="w-full bg-islamic-50 border border-islamic-100 rounded-xl py-2 px-3 text-sm focus:outline-none focus:ring-1 focus:ring-islamic-500">
+                                </div>
+                            </div>
+
+                            <!-- Accomplishments -->
+                            <div>
+                                <div class="flex justify-between items-center mb-1">
+                                    <label class="block text-xs font-semibold text-gray-600">تفاصيل ومخرجات العمل في هذه الفترة:</label>
+                                    <button type="button" onclick="polishTextWithAI('manual-text')" class="text-xs text-islamic-500 hover:text-islamic-700 bg-islamic-50 hover:bg-islamic-100 px-3 py-1 rounded-lg border border-islamic-200 transition flex items-center gap-1">
+                                        <i class="fa-solid fa-wand-magic-sparkles text-islamic-gold"></i> صياغة مهنية بالذكاء الاصطناعي
+                                    </button>
+                                </div>
+                                <textarea required id="manual-text" rows="3" placeholder="اكتب ما أنجزته بوضوح... (مثال: تلخيص مستند، مراجعة تصاميم، الخ)" class="w-full bg-islamic-50 border border-islamic-100 rounded-xl py-2 px-3 text-sm focus:outline-none focus:ring-1 focus:ring-islamic-500 resize-none"></textarea>
+                            </div>
+
+                            <!-- File Attachments Simulator inside form -->
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-600 mb-1">إرفاق مستندات أو صور داعمة للإنجاز (اختياري):</label>
+                                <div class="border-2 border-dashed border-islamic-100 rounded-xl p-4 bg-islamic-50/50 hover:bg-islamic-50 transition cursor-pointer relative flex flex-col items-center justify-center text-center">
+                                    <input id="form-file-input" type="file" multiple class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" onchange="handleFileSelection(event)">
+                                    <i class="fa-solid fa-cloud-arrow-up text-islamic-gold text-2xl mb-2"></i>
+                                    <p class="text-xs font-medium text-gray-600">اضغط لرفع الملفات أو الصور أو اسحبها هنا</p>
+                                    <p class="text-[10px] text-gray-400 mt-1">يُسمح برفع الصور والمستندات بحد أقصى 5MB لكل ملف</p>
+                                </div>
+                                <!-- List of uploaded files preview in the form -->
+                                <div id="selected-files-preview" class="flex flex-wrap gap-2 mt-3">
+                                    <!-- Dynamic file badges will go here -->
+                                </div>
+                            </div>
+
+                            <!-- Action Button -->
+                            <div class="flex justify-end pt-2">
+                                <button type="submit" class="bg-islamic-500 hover:bg-islamic-600 text-white font-medium py-2.5 px-6 rounded-xl shadow-sm transition flex items-center gap-2">
+                                    <i class="fa-solid fa-floppy-disk text-islamic-gold"></i> تقييد الجلسة وحفظها
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- NEW: AI Planner & Performance Assistant Section -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+            <!-- AI Planning Assistant Card -->
+            <div class="bg-white rounded-2xl p-6 border border-islamic-100 shadow-sm relative overflow-hidden flex flex-col justify-between">
+                <div class="absolute -top-10 -left-10 w-32 h-32 bg-islamic-50 rounded-full opacity-30 pointer-events-none"></div>
+                <div>
+                    <h3 class="font-serif text-lg font-bold text-islamic-500 flex items-center gap-2 mb-2">
+                        <i class="fa-solid fa-calendar-check text-islamic-gold animate-bounce"></i> مساعد خطة العمل الذكية (AI Planner)
+                    </h3>
+                    <p class="text-xs text-gray-400 mb-4">اكتب ما تود إنجازه اليوم، وسيجزئه الذكاء الاصطناعي لك ليتناسب مع هدف الـ 4 ساعات اليومية.</p>
+                    
+                    <div class="space-y-3">
+                        <textarea id="ai-planner-input" rows="2" placeholder="مثال: مراجعة المبيعات الأسبوعية لمؤسسة منهاج وصياغة مسودة الاتفاقية المالية الجديدة..." class="w-full bg-islamic-50 border border-islamic-100 rounded-xl py-2 px-3 text-sm focus:outline-none focus:ring-1 focus:ring-islamic-500 resize-none"></textarea>
+                        
+                        <button onclick="generatePlanWithAI()" class="w-full bg-islamic-500 hover:bg-islamic-600 text-white text-xs font-bold py-2.5 px-4 rounded-xl transition flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-brain"></i> تقسيم وتخطيط يومي ذكي
+                        </button>
+                    </div>
+
+                    <div id="ai-planner-output" class="mt-4 bg-islamic-50 p-4 rounded-xl border border-islamic-100 text-xs text-gray-700 space-y-2 max-h-[220px] overflow-y-auto hidden">
+                        <!-- Plan output goes here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Weekly Performance Analyst Card -->
+            <div class="bg-white rounded-2xl p-6 border border-islamic-100 shadow-sm relative overflow-hidden flex flex-col justify-between">
+                <div class="absolute -top-10 -right-10 w-32 h-32 bg-islamic-50 rounded-full opacity-30 pointer-events-none"></div>
+                <div>
+                    <h3 class="font-serif text-lg font-bold text-islamic-500 flex items-center gap-2 mb-2">
+                        <i class="fa-solid fa-chart-pie text-islamic-gold"></i> مستشار الأداء والتحليل الاستراتيجي (AI Analyst)
+                    </h3>
+                    <p class="text-xs text-gray-400 mb-4">دع الذكاء الاصطناعي يحلل كافة جلساتك المسجلة ويكتب لك تقريراً شاملاً للإنجاز والتوصيات الأسبوعية.</p>
+                    
+                    <div class="bg-islamic-50/50 rounded-xl p-3 border border-islamic-100 flex items-center justify-between mb-4">
+                        <span class="text-xs text-gray-600 font-medium">تحليل الجلسات وتوليد التقرير التنفيذي:</span>
+                        <button onclick="generatePerformanceReport()" class="bg-islamic-gold hover:bg-islamic-gold/95 text-white text-xs font-bold py-2 px-4 rounded-lg transition flex items-center gap-1.5 shadow-sm">
+                            <i class="fa-solid fa-magnifying-glass-chart"></i> توليد تقرير الأداء الذكي
+                        </button>
+                    </div>
+
+                    <div id="ai-report-output" class="bg-islamic-50 p-4 rounded-xl border border-islamic-100 text-xs text-gray-700 space-y-2 max-h-[200px] overflow-y-auto hidden">
+                        <!-- Report output goes here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Media Vault / Documents Repository -->
+        <div class="bg-white rounded-2xl p-6 border border-islamic-100 shadow-sm mt-8">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-islamic-50 pb-4 mb-4 gap-2">
+                <div>
+                    <h3 class="font-serif text-lg font-bold text-islamic-500 flex items-center gap-2">
+                        <i class="fa-solid fa-folder-open text-islamic-gold"></i> مستودع وثائق وملفات العمل
+                    </h3>
+                    <p class="text-xs text-gray-400">استعرض المرفقات الخاصة بك مع ميزة التحليل الذكي للصور والمستندات</p>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span id="total-attachments-badge" class="bg-islamic-50 text-islamic-500 text-xs py-1 px-3 rounded-full font-bold">0 ملف</span>
+                </div>
+            </div>
+
+            <!-- Empty State for Media Vault -->
+            <div id="media-vault-empty" class="py-12 flex flex-col items-center justify-center text-center">
+                <div class="w-16 h-16 bg-islamic-50 rounded-full flex items-center justify-center text-islamic-gold/60 mb-3">
+                    <i class="fa-regular fa-image text-2xl"></i>
+                </div>
+                <h5 class="text-sm font-semibold text-gray-700">لا يوجد وثائق مرفقة بعد</h5>
+                <p class="text-xs text-gray-400 mt-1 max-w-sm">قم برفع مستندات عند قيد الجلسات لتظهر هنا، ثم استخدم ذكاء Gemini لتحليلها وتلخيصها فوراً.</p>
+            </div>
+
+            <!-- Grid for Media Vault -->
+            <div id="media-vault-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 hidden">
+                <!-- Dynamic media items here -->
+            </div>
+        </div>
+
+        <!-- Work Logs History -->
+        <div class="bg-white rounded-2xl p-6 border border-islamic-100 shadow-sm mt-8">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-islamic-50 pb-4 mb-4 gap-4">
+                <div>
+                    <h3 class="font-serif text-lg font-bold text-islamic-500 flex items-center gap-2">
+                        <i class="fa-solid fa-book-bookmark text-islamic-gold"></i> سجل جلسات العمل والإنجازات المتكامل
+                    </h3>
+                    <p class="text-xs text-gray-400">سجل زمني لجميع الفترات التي عملت فيها مع إمكانية التصدير</p>
+                </div>
+                <div class="flex gap-2">
+                    <button onclick="exportLogsToPDF()" class="bg-islamic-50 hover:bg-islamic-100 text-islamic-600 border border-islamic-100 text-xs font-semibold py-2 px-4 rounded-xl transition flex items-center gap-2">
+                        <i class="fa-solid fa-file-pdf"></i> طباعة التقرير / PDF
+                    </button>
+                    <button onclick="exportLogsToCSV()" class="bg-islamic-50 hover:bg-islamic-100 text-islamic-600 border border-islamic-100 text-xs font-semibold py-2 px-4 rounded-xl transition flex items-center gap-2">
+                        <i class="fa-solid fa-file-excel"></i> تصدير Excel (CSV)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Table Filters -->
+            <div class="flex flex-wrap gap-2 mb-4 items-center">
+                <span class="text-xs text-gray-500">تصفية السجل:</span>
+                <button onclick="filterLogs('all')" id="filter-all" class="bg-islamic-500 text-white text-xs py-1.5 px-3 rounded-lg font-medium transition">الكل</button>
+                <button onclick="filterLogs('today')" id="filter-today" class="bg-gray-100 text-gray-600 hover:bg-gray-200 text-xs py-1.5 px-3 rounded-lg font-medium transition">اليوم</button>
+                <button onclick="filterLogs('week')" id="filter-week" class="bg-gray-100 text-gray-600 hover:bg-gray-200 text-xs py-1.5 px-3 rounded-lg font-medium transition">هذا الأسبوع</button>
+                <button onclick="filterLogs('month')" id="filter-month" class="bg-gray-100 text-gray-600 hover:bg-gray-200 text-xs py-1.5 px-3 rounded-lg font-medium transition">هذا الشهر</button>
+            </div>
+
+            <!-- Responsive Table Container -->
+            <div class="overflow-x-auto rounded-xl border border-gray-100">
+                <table class="w-full text-right border-collapse min-w-[650px]" id="logs-table">
+                    <thead>
+                        <tr class="bg-islamic-50/50 text-islamic-600 text-xs border-b border-gray-100">
+                            <th class="py-3 px-4 font-bold">التاريخ والوقت</th>
+                            <th class="py-3 px-4 font-bold">طبيعة الجلسة</th>
+                            <th class="py-3 px-4 font-bold">مدة الجلسة</th>
+                            <th class="py-3 px-4 font-bold">أبرز الإنجازات</th>
+                            <th class="py-3 px-4 font-bold">المرفقات والذكاء الاصطناعي</th>
+                            <th class="py-3 px-4 font-bold text-center">إجراءات</th>
+                        </tr>
+                    </thead>
+                    <tbody id="logs-list" class="divide-y divide-gray-50 text-sm">
+                        <!-- Dynamic rows here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Empty State for Table -->
+            <div id="logs-empty-state" class="py-12 flex flex-col items-center justify-center text-center hidden">
+                <div class="w-16 h-16 bg-islamic-50 rounded-full flex items-center justify-center text-islamic-gold/60 mb-3">
+                    <i class="fa-regular fa-clipboard text-2xl"></i>
+                </div>
+                <h5 class="text-sm font-semibold text-gray-700">لا يوجد جلسات مسجلة</h5>
+                <p class="text-xs text-gray-400 mt-1">ابدأ بتشغيل المؤقت أعلاه أو أدخل جلسة يدوية لتوثيق أعمالك اليوم.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Custom Modal: Session Save Dialog -->
+    <div id="save-session-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300">
+        <div class="bg-white rounded-2xl p-6 max-w-lg w-full mx-4 shadow-xl border border-islamic-100 transform scale-95 transition-transform duration-300">
+            <div class="flex justify-between items-center border-b border-islamic-50 pb-3 mb-4">
+                <h3 class="font-serif text-lg font-bold text-islamic-500 flex items-center gap-2">
+                    <i class="fa-solid fa-circle-check text-islamic-gold"></i> إنهاء وحفظ الجلسة بنجاح
+                </h3>
+                <button onclick="closeLoggingModal()" class="text-gray-400 hover:text-gray-600"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <div class="mb-4 bg-islamic-50 p-4 rounded-xl border border-islamic-100 flex items-center justify-between">
+                <div>
+                    <span class="text-xs text-gray-400 block">مدة العمل المنقضية:</span>
+                    <strong id="modal-duration-formatted" class="text-lg text-islamic-500 font-mono">00:00:00</strong>
+                </div>
+                <div class="text-left">
+                    <span class="text-xs text-gray-400 block">التاريخ والوقت:</span>
+                    <strong id="modal-date-formatted" class="text-xs text-gray-600">--</strong>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <div>
+                    <div class="flex justify-between items-center mb-1">
+                        <label class="block text-xs font-semibold text-gray-600">ماذا أنجزت خلال هذه الجلسة؟ (مطلوب)</label>
+                        <button type="button" onclick="polishTextWithAI('modal-session-text')" class="text-[11px] text-islamic-500 hover:text-islamic-700 bg-islamic-50 hover:bg-islamic-100 px-2 py-0.5 rounded border border-islamic-200 transition flex items-center gap-1">
+                            <i class="fa-solid fa-wand-magic-sparkles text-islamic-gold"></i> صياغة مهنية ✨
+                        </button>
+                    </div>
+                    <textarea id="modal-session-text" required rows="3" placeholder="مثال: قمت بتسجيل مبيعات اليوم، تدقيق مستندات التبرعات لمؤسسة منهاج، إلخ..." class="w-full bg-islamic-50 border border-islamic-100 rounded-xl py-2 px-3 text-sm focus:outline-none focus:ring-1 focus:ring-islamic-500 resize-none"></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-gray-600 mb-1">مرفقات هذه الجلسة (اختياري):</label>
+                    <div class="border border-dashed border-islamic-100 rounded-xl p-3 bg-islamic-50/30 flex flex-col items-center justify-center text-center cursor-pointer relative">
+                        <input id="modal-file-input" type="file" multiple class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" onchange="handleModalFileSelection(event)">
+                        <i class="fa-solid fa-cloud-arrow-up text-islamic-gold text-lg mb-1"></i>
+                        <span class="text-[11px] text-gray-500">ارفع ملفات داعمة لجلسة العمل الحالية</span>
+                    </div>
+                    <!-- Selected files list inside modal -->
+                    <div id="modal-files-preview" class="flex flex-wrap gap-1.5 mt-2"></div>
+                </div>
+            </div>
+
+            <div class="flex justify-end gap-3 mt-6 border-t border-islamic-50 pt-4">
+                <button onclick="closeLoggingModal()" class="bg-gray-100 hover:bg-gray-200 text-gray-600 font-medium py-2 px-4 rounded-xl text-xs transition">
+                    إلغاء الحفظ
+                </button>
+                <button onclick="submitLoggedSession()" class="bg-islamic-500 hover:bg-islamic-600 text-white font-medium py-2 px-5 rounded-xl text-xs shadow-sm transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-cloud-arrow-up"></i> حفظ الإنجاز وخصم الساعات
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Modal: Image/File Viewer & AI Document Intelligence -->
+    <div id="media-viewer-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300">
+        <div class="bg-white rounded-2xl p-6 max-w-2xl w-full mx-4 shadow-xl border border-islamic-100 transform scale-95 transition-transform duration-300 relative">
+            <button onclick="closeMediaViewer()" class="absolute top-4 left-4 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-full w-8 h-8 flex items-center justify-center transition"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="font-serif text-lg font-bold text-islamic-500 border-b border-islamic-50 pb-3 mb-4" id="media-viewer-title">عرض المرفق</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Attachment preview box -->
+                <div class="flex items-center justify-center min-h-[250px] max-h-[380px] overflow-hidden rounded-xl bg-gray-50 border border-gray-100 p-2">
+                    <img id="media-viewer-image" class="max-w-full max-h-[350px] object-contain rounded-lg hidden" src="" alt="مرفق">
+                    <div id="media-viewer-fallback" class="flex flex-col items-center justify-center text-center p-6 hidden">
+                        <i class="fa-regular fa-file-pdf text-6xl text-red-500 mb-3"></i>
+                        <p class="text-sm font-semibold text-gray-700 mb-1" id="media-viewer-filename">اسم الملف.pdf</p>
+                        <p class="text-xs text-gray-400 mb-4" id="media-viewer-size">حجم الملف</p>
+                    </div>
+                </div>
+
+                <!-- AI Document Intelligence Panel inside lightbox -->
+                <div class="flex flex-col justify-between bg-islamic-50 rounded-xl p-4 border border-islamic-100">
+                    <div>
+                        <h4 class="text-xs font-bold text-islamic-500 flex items-center gap-1.5 mb-2">
+                            <i class="fa-solid fa-brain text-islamic-gold"></i> تحليل الذكاء الاصطناعي (Gemini Vision)
+                        </h4>
+                        <p class="text-[10px] text-gray-500 mb-3">استخرج النصوص ولخص محتوى هذا الملف بشكل فوري من خلال النماذج المتقدمة.</p>
+                        
+                        <div id="ai-vision-output" class="text-xs text-gray-700 overflow-y-auto max-h-[180px] space-y-2 bg-white p-3 rounded-lg border border-islamic-200 leading-relaxed">
+                            <span class="text-gray-400 italic">اضغط على الزر أدناه لتشغيل الرؤية والتحليل الذكي...</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-2">
+                        <button id="btn-ai-analyze-file" onclick="analyzeFileWithGemini()" class="w-full bg-islamic-500 hover:bg-islamic-600 text-white text-xs font-bold py-2 rounded-lg transition flex items-center justify-center gap-1.5 shadow-sm">
+                            <i class="fa-solid fa-wand-magic-sparkles text-islamic-gold"></i> تشغيل تحليل المستند الذكي
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-end gap-3 mt-6 pt-4 border-t border-islamic-50">
+                <a id="media-viewer-download" href="#" download class="bg-islamic-50/50 hover:bg-islamic-50 border border-islamic-200 text-islamic-600 font-medium py-2 px-5 rounded-xl text-xs transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-download"></i> تحميل الملف
+                </a>
+                <button onclick="closeMediaViewer()" class="bg-gray-100 hover:bg-gray-200 text-gray-600 font-medium py-2 px-4 rounded-xl text-xs transition">
+                    إغلاق المعاينة
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Dialog: Confirmation Dialog -->
+    <div id="confirmation-dialog" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300">
+        <div class="bg-white rounded-2xl p-6 max-w-md w-full mx-4 shadow-xl border border-islamic-100 transform scale-95 transition-transform duration-300 text-center">
+            <div class="w-14 h-14 bg-red-50 text-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fa-solid fa-triangle-exclamation text-2xl"></i>
+            </div>
+            <h3 class="text-lg font-bold text-gray-800 mb-2" id="confirm-title">تحذير!</h3>
+            <p class="text-sm text-gray-500 mb-6" id="confirm-message">هل أنت متأكد من رغبتك في القيام بهذا الإجراء؟</p>
+            <div class="flex justify-center gap-3">
+                <button id="confirm-cancel-btn" class="bg-gray-100 hover:bg-gray-200 text-gray-600 font-medium py-2 px-5 rounded-xl text-xs transition">إلغاء</button>
+                <button id="confirm-ok-btn" class="bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-5 rounded-xl text-xs shadow-sm transition">نعم، متأكد</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Notification Toast System -->
+    <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2"></div>
+
+    <!-- Footer -->
+    <footer class="relative z-10 bg-white border-t border-islamic-100 py-6 mt-12 text-center text-xs text-gray-400">
+        <p class="font-serif text-sm text-islamic-500 mb-2">« وَقُلِ اعْمَلُوا فَسَيَرَى اللَّهُ عَمَلَكُمْ وَرَسُولُهُ وَالْمُؤْمِنُونَ »</p>
+        <p>© ٢٠٢٦ مؤسسة منهاج. جميع الحقوق محفوظة لمتصفحك المحلي (Offline Local Storage & Gemini AI System).</p>
+    </footer>
+
+    <script>
+        // --- State Variables ---
+        let timerInterval = null;
+        let elapsedSeconds = 0;
+        let isTimerRunning = false;
+        let currentFilter = 'all';
+
+        // Custom Targets (Default)
+        let weeklyTargetHours = 24;
+        let monthlyTargetHours = 96;
+
+        // Prior Hours (Rollover/Manual addition without session)
+        let priorWeeklyHours = 0;
+        let priorMonthlyHours = 0;
+
+        // Custom API Key storage (Canvas automatically injects if left blank, but we allow override)
+        let geminiApiKey = "";
+
+        // Logs Data Container (Saved inside Local Storage)
+        let workLogs = [];
+        
+        // Temporarily stored file attachments for current manual/modal inputs
+        let temporaryAttachments = [];
+        
+        // Tracking currently selected file inside lightbox modal
+        let activeViewerLogId = null;
+        let activeViewerFileId = null;
+
+        // --- Core App Initialization ---
+        window.onload = function() {
+            // Load saved configurations and logs
+            loadSavedData();
+            // Set Hijri greeting or current Arabic format date
+            updateDateAndGreeting();
+            // Update the UI values with calculations
+            recalculateDashboard();
+            // Initial render
+            renderLogsTable();
+            renderMediaVault();
+
+            // Set current datetime for manual form input as default
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            document.getElementById('manual-date').value = `${year}-${month}-${day}T${hours}:${minutes}`;
+        };
+
+        // --- Date Helper ---
+        function updateDateAndGreeting() {
+            const today = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', calendar: 'islamic-umalqura' };
+            try {
+                const arabicDateStr = today.toLocaleDateString('ar-SA', options);
+                document.getElementById('current-date-hijri').innerText = `بِسْمِ اللَّهِ • ${arabicDateStr}`;
+            } catch (e) {
+                // Fallback inside non-compatible browsers
+                const optionsGr = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                document.getElementById('current-date-hijri').innerText = `بِسْمِ اللَّهِ • ` + today.toLocaleDateString('ar-EG', optionsGr);
+            }
+        }
+
+        // --- Storage Utilities ---
+        function loadSavedData() {
+            try {
+                const savedLogs = localStorage.getItem('minhaj_work_logs');
+                if (savedLogs) {
+                    workLogs = JSON.parse(savedLogs);
+                }
+                
+                const savedWeeklyTarget = localStorage.getItem('minhaj_weekly_target');
+                if (savedWeeklyTarget) {
+                    weeklyTargetHours = parseFloat(savedWeeklyTarget);
+                    document.getElementById('input-weekly-target').value = weeklyTargetHours;
+                }
+                
+                const savedMonthlyTarget = localStorage.getItem('minhaj_monthly_target');
+                if (savedMonthlyTarget) {
+                    monthlyTargetHours = parseFloat(savedMonthlyTarget);
+                    document.getElementById('input-monthly-target').value = monthlyTargetHours;
+                }
+
+                const savedPriorWeekly = localStorage.getItem('minhaj_prior_weekly');
+                if (savedPriorWeekly) {
+                    priorWeeklyHours = parseFloat(savedPriorWeekly);
+                    document.getElementById('input-prior-weekly').value = priorWeeklyHours;
+                }
+
+                const savedPriorMonthly = localStorage.getItem('minhaj_prior_monthly');
+                if (savedPriorMonthly) {
+                    priorMonthlyHours = parseFloat(savedPriorMonthly);
+                    document.getElementById('input-prior-monthly').value = priorMonthlyHours;
+                }
+
+                const savedKey = localStorage.getItem('minhaj_gemini_key');
+                if (savedKey) {
+                    geminiApiKey = savedKey;
+                    document.getElementById('input-gemini-key').value = geminiApiKey;
+                }
+            } catch (error) {
+                showToast('خطأ أثناء تحميل البيانات من الذاكرة المحلية.', 'error');
+            }
+        }
+
+        function saveAllData() {
+            try {
+                localStorage.setItem('minhaj_work_logs', JSON.stringify(workLogs));
+                localStorage.setItem('minhaj_weekly_target', weeklyTargetHours.toString());
+                localStorage.setItem('minhaj_monthly_target', monthlyTargetHours.toString());
+                localStorage.setItem('minhaj_prior_weekly', priorWeeklyHours.toString());
+                localStorage.setItem('minhaj_prior_monthly', priorMonthlyHours.toString());
+            } catch (error) {
+                showToast('سعة الذاكرة المحلية قد تكون ممتلئة بسبب كثرة المرفقات الكبيرة.', 'warning');
+            }
+        }
+
+        function saveApiKey() {
+            const keyVal = document.getElementById('input-gemini-key').value.trim();
+            geminiApiKey = keyVal;
+            localStorage.setItem('minhaj_gemini_key', keyVal);
+            showToast('تم حفظ مفتاح Gemini بنجاح', 'success');
+        }
+
+        // --- Gemini LLM API Call Core Engine ---
+        async function callGeminiAPI(userPrompt, systemPrompt = "", imageParts = []) {
+            // Priority: User API Key, if empty, let empty string trigger Canvas auto-injection
+            const actualKey = geminiApiKey || ""; 
+            const modelName = "gemini-3-flash-preview";
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${actualKey}`;
+
+            let parts = [{ text: userPrompt }];
+            
+            // If we have base64 image data to process
+            if (imageParts && imageParts.length > 0) {
+                parts = [...imageParts, ...parts];
+            }
+
+            const payload = {
+                contents: [{ parts: parts }]
+            };
+
+            // Optional System instruction
+            if (systemPrompt) {
+                payload.systemInstruction = {
+                    parts: [{ text: systemPrompt }]
+                };
+            }
+
+            // Exponential backoff runner
+            let retries = 3;
+            let delay = 1000;
+
+            while (retries > 0) {
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`API response status: ${response.status}`);
+                    }
+
+                    const result = await response.json();
+                    const textResult = result.candidates?.[0]?.content?.parts?.[0]?.text;
+                    
+                    if (textResult) {
+                        return textResult;
+                    } else {
+                        throw new Error('لم يتم استرجاع نصوص صحيحة من نموذج Gemini.');
+                    }
+                } catch (err) {
+                    retries--;
+                    if (retries === 0) {
+                        throw err;
+                    }
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                    delay *= 2; // exponential backoff
+                }
+            }
+        }
+
+        // --- AI Polish (تحسين الصياغة المهنية بالإنجازات) ---
+        async function polishTextWithAI(textareaId) {
+            const textarea = document.getElementById(textareaId);
+            const originalText = textarea.value.trim();
+
+            if (!originalText) {
+                showToast('يرجى كتابة مسودة للإنجاز أولاً حتى يتمكن الذكاء الاصطناعي من تحسينها.', 'warning');
+                return;
+            }
+
+            showToast('جاري الصياغة والتحسين باستخدام Gemini...', 'info');
+            textarea.disabled = true;
+
+            const systemPrompt = "أنت كاتب وموثق إنجازات مهني ومحترف بمؤسسة منهاج الإسلامية للإنتاجية والعمل الفعال. مهمتك أخذ المسودات القصيرة والعشوائية التي يكتبها الموظف لعمله، وتحويلها إلى نقاط إنجاز بليغة ومهنية، مع تلميع الأسلوب لغوياً وإبراز العمل بتقدير واحترام، مع الحفاظ الكامل على الأمانة والمحتوى الحقيقي دون مبالغات زائفة. استخدم لغة عربية فصحى نقية وأنيقة.";
+            const userPrompt = `قم بتحسين الصياغة وتنسيق الإنجاز التالي بشكل نقاط نقطية مرتبة ومهنية جداً:\n\n"${originalText}"`;
+
+            try {
+                const polished = await callGeminiAPI(userPrompt, systemPrompt);
+                textarea.value = polished;
+                showToast('تم صياغة وتحسين الإنجازات بنجاح! ✨', 'success');
+            } catch (error) {
+                console.error(error);
+                showToast('حدث خطأ أثناء الاتصال بـ Gemini لتجميل النصوص. يرجى التحقق من اتصالك بالإنترنت.', 'error');
+            } finally {
+                textarea.disabled = false;
+            }
+        }
+
+        // --- AI Planning Assistant ---
+        async function generatePlanWithAI() {
+            const rawInput = document.getElementById('ai-planner-input').value.trim();
+            const outputDiv = document.getElementById('ai-planner-output');
+
+            if (!rawInput) {
+                showToast('يرجى تحديد أهدافك اليومية أولاً حتى يساعدك الذكاء الاصطناعي في تقسيمها.', 'warning');
+                return;
+            }
+
+            outputDiv.innerHTML = `
+                <div class="flex items-center gap-2 justify-center py-4">
+                    <span class="inline-block w-4 h-4 rounded-full border-2 border-t-transparent border-islamic-500 animate-spin"></span>
+                    <span>جاري التفكير والتخطيط المهني لمسارك اليومي...</span>
+                </div>
+            `;
+            outputDiv.classList.remove('hidden');
+
+            const systemPrompt = "أنت مخطط أعمال ذكي ومستشار للعمل الفعال بمؤسسة منهاج. يساعد الموظف على تقسيم مهامه الكبيرة لليوم إلى خطة زمنية عملية تناسب رصيده اليومي (4 ساعات فقط كحد أقصى) لتجنب الإرهاق. صمم خطة مكونة من فترات عمل Pomodoro (مثلاً: 50 دقيقة عمل، 10 دقائق استراحة) ورتبها بشكل جميل ملهم ذو طابع إسلامي يحفز على بركة الوقت والنية.";
+            const userPrompt = `هدفي الكبير والمهام التي أود إنجازها اليوم هي:\n"${rawInput}"\n\nأرجو وضع خطة عملية ومقسمة على الساعات الأربع لعملي اليوم.`;
+
+            try {
+                const planResult = await callGeminiAPI(userPrompt, systemPrompt);
+                // Simple markdown formatter representation in output
+                outputDiv.innerHTML = `
+                    <div class="prose max-w-none">
+                        <div class="flex justify-between items-center border-b border-islamic-100 pb-1.5 mb-2">
+                            <span class="font-bold text-islamic-500">خطة العمل المقترحة ببركة الوقت 🌟:</span>
+                            <button onclick="copyToClipboard('${encodeURIComponent(planResult)}')" class="text-[10px] bg-white text-islamic-600 px-2 py-0.5 rounded border border-islamic-200 hover:bg-islamic-100 transition flex items-center gap-1">
+                                <i class="fa-regular fa-copy"></i> نسخ الخطة
+                            </button>
+                        </div>
+                        <p class="whitespace-pre-line leading-relaxed">${planResult}</p>
+                    </div>
+                `;
+            } catch (error) {
+                console.error(error);
+                outputDiv.innerHTML = `<span class="text-red-500">حدث خطأ أثناء معالجة الخطة الذكية. تفقد مفتاح الـ API الخاص بك أو اتصالك.</span>`;
+            }
+        }
+
+        // --- AI Performance Analyst ---
+        async function generatePerformanceReport() {
+            const outputDiv = document.getElementById('ai-report-output');
+
+            if (workLogs.length === 0) {
+                showToast('سجل العمل فارغ! يجب عليك تقييد بعض الفترات والإنجازات أولاً ليتمكن الذكاء الاصطناعي من تحليل أدائك.', 'info');
+                return;
+            }
+
+            outputDiv.innerHTML = `
+                <div class="flex items-center gap-2 justify-center py-4">
+                    <span class="inline-block w-4 h-4 rounded-full border-2 border-t-transparent border-islamic-500 animate-spin"></span>
+                    <span>جاري تجميع سجلات العمل وتحليل الأنماط والإنتاجية...</span>
+                </div>
+            `;
+            outputDiv.classList.remove('hidden');
+
+            // Formulate current logs database summary
+            let logSummary = "";
+            workLogs.slice(0, 10).forEach((log, index) => {
+                const date = new Date(log.date).toLocaleDateString('ar-EG');
+                logSummary += `[جلسة ${index+1}] التاريخ: ${date}، المدة: ${log.hours.toFixed(2)} ساعة، ما تم إنجازه: ${log.accomplishments}\n`;
+            });
+
+            const systemPrompt = "أنت خبير قياس الأداء وتحسين الإنتاجية بمؤسسة منهاج. ستقدم للموظف تقريراً أسبوعياً استراتيجياً تحليلياً شاملاً، يحتوي على: 1. تقييم عام لأبرز مجالات التركيز لديه من واقع إنجازاته السابقة. 2. نصائح لتحسين بركة وقته وعمله وفقاً لنصابه (4 ساعات/يومياً). 3. تحديات محتملة وكيفية تداركها لتفادي التشتت. كن مشجعاً وملهماً، واستعن ببعض مفاهيم البركة والإنتاجية المتوازنة بأسلوب راقٍ.";
+            const userPrompt = `إليك سجل إنجازاتي المسجلة مؤخراً:\n${logSummary}\n\nيرجى تحليل هذه الجلسات وكتابة التقرير الاستراتيجي المذكور.`;
+
+            try {
+                const reportResult = await callGeminiAPI(userPrompt, systemPrompt);
+                outputDiv.innerHTML = `
+                    <div class="prose max-w-none">
+                        <div class="flex justify-between items-center border-b border-islamic-100 pb-1.5 mb-2">
+                            <span class="font-bold text-islamic-500">التقرير التنفيذي للأداء الذكي 📊:</span>
+                            <button onclick="copyToClipboard('${encodeURIComponent(reportResult)}')" class="text-[10px] bg-white text-islamic-600 px-2 py-0.5 rounded border border-islamic-200 hover:bg-islamic-100 transition flex items-center gap-1">
+                                <i class="fa-regular fa-copy"></i> نسخ التقرير
+                            </button>
+                        </div>
+                        <p class="whitespace-pre-line leading-relaxed">${reportResult}</p>
+                    </div>
+                `;
+            } catch (error) {
+                console.error(error);
+                outputDiv.innerHTML = `<span class="text-red-500">حدث خطأ أثناء توليد التحليلات الفنية للأداء.</span>`;
+            }
+        }
+
+        // --- Gemini Vision: AI File Analysis (Multimodal) ---
+        async function analyzeFileWithGemini() {
+            if (!activeViewerLogId || !activeViewerFileId) return;
+
+            const parentLog = workLogs.find(log => log.id === activeViewerLogId);
+            if (!parentLog) return;
+            const file = parentLog.attachments.find(att => att.id === activeViewerFileId);
+            if (!file) return;
+
+            const outputBox = document.getElementById('ai-vision-output');
+            const analyzeBtn = document.getElementById('btn-ai-analyze-file');
+
+            outputBox.innerHTML = `
+                <div class="flex items-center gap-2 justify-center py-4">
+                    <span class="inline-block w-4 h-4 rounded-full border-2 border-t-transparent border-islamic-500 animate-spin"></span>
+                    <span class="text-gray-600">جاري مسح وتحليل محتوى الملف بـ Gemini Vision...</span>
+                </div>
+            `;
+            analyzeBtn.disabled = true;
+
+            const systemPrompt = "أنت محلل وثائق متطور ومدقق للمرفقات بمؤسسة منهاج. مهمتك قراءة ومسح الصور أو الملفات المرفقة، توفير تلخيص فوري واحترافي لمضمونها، استخلاص النصوص الهامة الموجودة فيها بدقة لغوية، وربطها بعمل الموظف مع تقديم أفكار وإجراءات تالية مفيدة تضمن جودة الإنتاجية وتوثيق الإنجازات.";
+            const userPrompt = `المستند المرفق يحمل اسم "${file.name}". يرجى تحليله واستخلاص تفاصيله كاملة باللغة العربية مع توضيح الفائدة منه.`;
+
+            let imageParts = [];
+            
+            // Check if file is image and convert for inlineData
+            if (file.type.startsWith('image/')) {
+                // Strip mime-type prefix (e.g. "data:image/png;base64,")
+                const base64Clean = file.data.split(',')[1];
+                imageParts.push({
+                    inlineData: {
+                        mimeType: file.type,
+                        data: base64Clean
+                    }
+                });
+            }
+
+            try {
+                const analysisResult = await callGeminiAPI(userPrompt, systemPrompt, imageParts);
+                outputBox.innerHTML = `
+                    <p class="whitespace-pre-line text-xs text-gray-700 leading-relaxed">${analysisResult}</p>
+                `;
+            } catch (error) {
+                console.error(error);
+                outputBox.innerHTML = `<span class="text-red-500">فشل في إتمام عملية قراءة وتحليل المرفق بالذكاء الاصطناعي. قد يعود ذلك لعدم تهيئة مفتاح API بشكل سليم أو جدار حماية شبكي.</span>`;
+            } finally {
+                analyzeBtn.disabled = false;
+            }
+        }
+
+        // --- Custom Clipboard Utility ---
+        function copyToClipboard(encodedText) {
+            const cleanText = decodeURIComponent(encodedText);
+            const dummy = document.createElement("textarea");
+            document.body.appendChild(dummy);
+            dummy.value = cleanText;
+            dummy.select();
+            document.execCommand('copy');
+            document.body.removeChild(dummy);
+            showToast('تم نسخ النص إلى الحافظة بنجاح.', 'success');
+        }
+
+        // --- Target Customization ---
+        function updateCustomTargets() {
+            const weeklyInput = parseFloat(document.getElementById('input-weekly-target').value);
+            const monthlyInput = parseFloat(document.getElementById('input-monthly-target').value);
+
+            if (weeklyInput > 0) {
+                weeklyTargetHours = weeklyInput;
+            }
+            if (monthlyInput > 0) {
+                monthlyTargetHours = monthlyInput;
+            }
+
+            saveAllData();
+            recalculateDashboard();
+            showToast('تم تحديث أهداف ساعات العمل بنجاح', 'success');
+        }
+
+        // --- Prior Hours Handler ---
+        function savePriorHours() {
+            const priorWeeklyInput = parseFloat(document.getElementById('input-prior-weekly').value) || 0;
+            const priorMonthlyInput = parseFloat(document.getElementById('input-prior-monthly').value) || 0;
+
+            priorWeeklyHours = priorWeeklyInput;
+            priorMonthlyHours = priorMonthlyInput;
+
+            saveAllData();
+            recalculateDashboard();
+            showToast('تم إضافة الساعات السابقة للرصيد بنجاح.', 'success');
+        }
+
+        // --- Timer Controller Engine ---
+        function toggleTimer() {
+            const btnText = document.getElementById('btn-text');
+            const btnIcon = document.getElementById('btn-icon');
+            const timerStatus = document.getElementById('timer-status');
+            const timerRipple = document.getElementById('timer-ripple');
+
+            if (!isTimerRunning) {
+                // Start
+                isTimerRunning = true;
+                timerInterval = setInterval(() => {
+                    elapsedSeconds++;
+                    updateTimerDisplay();
+                }, 1000);
+
+                btnText.innerText = "توقف مؤقتاً";
+                btnIcon.className = "fa-solid fa-pause text-sm text-islamic-gold";
+                timerStatus.innerText = "جاري العمل والإنتاجية...";
+                timerStatus.classList.add('text-emerald-600', 'font-semibold');
+                timerRipple.classList.remove('hidden');
+                document.getElementById('btn-finish-session').removeAttribute('disabled');
+            } else {
+                // Pause
+                clearInterval(timerInterval);
+                isTimerRunning = false;
+                
+                btnText.innerText = "استئناف العمل";
+                btnIcon.className = "fa-solid fa-play text-sm text-islamic-gold";
+                timerStatus.innerText = "متوقف مؤقتاً للاستراحة";
+                timerStatus.classList.remove('text-emerald-600', 'font-semibold');
+                timerRipple.classList.add('hidden');
+            }
+        }
+
+        function updateTimerDisplay() {
+            const hrs = Math.floor(elapsedSeconds / 3600);
+            const mins = Math.floor((elapsedSeconds % 3600) / 60);
+            const secs = elapsedSeconds % 60;
+
+            const formatted = 
+                String(hrs).padStart(2, '0') + ":" + 
+                String(mins).padStart(2, '0') + ":" + 
+                String(secs).padStart(2, '0');
+
+            document.getElementById('timer-display').innerText = formatted;
+        }
+
+        function resetTimer() {
+            if (elapsedSeconds === 0) return;
+            
+            showConfirmation('تأكيد التصفير', 'هل تريد تصفير مؤقت العمل الحالي؟ لن يتم تقييد أو احتساب هذا الوقت.', () => {
+                if (isTimerRunning) {
+                    toggleTimer();
+                }
+                elapsedSeconds = 0;
+                updateTimerDisplay();
+                document.getElementById('btn-finish-session').setAttribute('disabled', 'true');
+                showToast('تم إعادة تعيين المؤقت إلى الصفر.', 'info');
+            });
+        }
+
+        // --- File Attachment Base64 Helper ---
+        function handleFileSelection(event) {
+            const files = event.target.files;
+            const container = document.getElementById('selected-files-preview');
+            
+            processMultipleFiles(files, container);
+        }
+
+        function handleModalFileSelection(event) {
+            const files = event.target.files;
+            const container = document.getElementById('modal-files-preview');
+            
+            processMultipleFiles(files, container);
+        }
+
+        function processMultipleFiles(files, container) {
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                if (file.size > 5 * 1024 * 1024) { // 5MB Limit
+                    showToast(`الملف "${file.name}" أكبر من الحجم المسموح به (5 ميجابايت).`, 'warning');
+                    continue;
+                }
+
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const fileObj = {
+                        id: 'file-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9),
+                        name: file.name,
+                        type: file.type,
+                        size: (file.size / 1024).toFixed(1) + ' KB',
+                        data: e.target.result // Base64 Content
+                    };
+
+                    temporaryAttachments.push(fileObj);
+                    renderFileBadge(fileObj, container);
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function renderFileBadge(fileObj, container) {
+            const badge = document.createElement('div');
+            badge.className = "flex items-center gap-1.5 bg-islamic-50 border border-islamic-100 rounded-lg py-1 px-2.5 text-xs text-islamic-600 shadow-sm transition hover:bg-red-50 hover:border-red-100 hover:text-red-600";
+            badge.id = fileObj.id;
+            badge.title = "اضغط للمسح";
+            
+            let iconClass = 'fa-regular fa-file';
+            if (fileObj.type.startsWith('image/')) iconClass = 'fa-regular fa-image';
+            else if (fileObj.type.includes('pdf')) iconClass = 'fa-regular fa-file-pdf';
+            
+            badge.innerHTML = `
+                <i class="${iconClass}"></i>
+                <span class="max-w-[120px] truncate font-medium">${fileObj.name}</span>
+                <button type="button" onclick="removeTempAttachment('${fileObj.id}', event)"><i class="fa-solid fa-xmark text-[10px]"></i></button>
+            `;
+            container.appendChild(badge);
+        }
+
+        function removeTempAttachment(id, event) {
+            event.stopPropagation();
+            temporaryAttachments = temporaryAttachments.filter(item => item.id !== id);
+            const badge = document.getElementById(id);
+            if (badge) badge.remove();
+        }
+
+        // --- Session Completion Modal Controls ---
+        function openLoggingModal() {
+            if (elapsedSeconds < 5) {
+                showToast('جلسة العمل قصيرة جداً للتقييد (الحد الأدنى 5 ثوانٍ).', 'info');
+                return;
+            }
+
+            // Set current formatted date
+            const now = new Date();
+            document.getElementById('modal-date-formatted').innerText = now.toLocaleString('ar-EG');
+            
+            // Format duration
+            const hrs = Math.floor(elapsedSeconds / 3600);
+            const mins = Math.floor((elapsedSeconds % 3600) / 60);
+            const secs = elapsedSeconds % 60;
+            const formatted = 
+                String(hrs).padStart(2, '0') + ":" + 
+                String(mins).padStart(2, '0') + ":" + 
+                String(secs).padStart(2, '0');
+            
+            document.getElementById('modal-duration-formatted').innerText = formatted;
+            
+            // Clear prior temporary attachments
+            temporaryAttachments = [];
+            document.getElementById('modal-files-preview').innerHTML = '';
+            document.getElementById('modal-session-text').value = '';
+
+            // Open Modal
+            const modal = document.getElementById('save-session-modal');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.querySelector('div').classList.remove('scale-95');
+        }
+
+        function closeLoggingModal() {
+            const modal = document.getElementById('save-session-modal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modal.querySelector('div').classList.add('scale-95');
+            temporaryAttachments = [];
+        }
+
+        function submitLoggedSession() {
+            const desc = document.getElementById('modal-session-text').value.trim();
+            if (!desc) {
+                showToast('يرجى كتابة ما أنجزته خلال الجلسة لحفظ السجل.', 'warning');
+                return;
+            }
+
+            // Save session log
+            const now = new Date();
+            const hoursWorked = elapsedSeconds / 3600;
+
+            const newLog = {
+                id: 'log-' + Date.now(),
+                date: now.toISOString(),
+                type: 'مُؤقت',
+                hours: hoursWorked,
+                seconds: elapsedSeconds,
+                accomplishments: desc,
+                attachments: [...temporaryAttachments]
+            };
+
+            workLogs.unshift(newLog); // Add to beginning
+            saveAllData();
+
+            // Reset Timer completely
+            if (isTimerRunning) {
+                toggleTimer();
+            }
+            elapsedSeconds = 0;
+            updateTimerDisplay();
+            document.getElementById('btn-finish-session').setAttribute('disabled', 'true');
+
+            // Close Modal & UI Update
+            closeLoggingModal();
+            recalculateDashboard();
+            renderLogsTable();
+            renderMediaVault();
+            showToast('تم حفظ جلسة العمل وتقييد الإنجازات وخصم الساعات بنجاح.', 'success');
+        }
+
+        // --- Manual Logs Submission ---
+        function handleManualLogSubmit(e) {
+            e.preventDefault();
+            
+            const hours = parseInt(document.getElementById('manual-hours').value) || 0;
+            const minutes = parseInt(document.getElementById('manual-minutes').value) || 0;
+            const dateVal = document.getElementById('manual-date').value;
+            const text = document.getElementById('manual-text').value.trim();
+
+            if (hours === 0 && minutes === 0) {
+                showToast('يرجى إدخال مدة عمل صحيحة (ساعة أو دقائق على الأقل).', 'warning');
+                return;
+            }
+
+            if (!text) {
+                showToast('يرجى وصف ما تم إنجازه خلال فترة العمل.', 'warning');
+                return;
+            }
+
+            const totalHours = hours + (minutes / 60);
+            const totalSeconds = (hours * 3600) + (minutes * 60);
+
+            const newLog = {
+                id: 'log-' + Date.now(),
+                date: new Date(dateVal).toISOString(),
+                type: 'يدوي',
+                hours: totalHours,
+                seconds: totalSeconds,
+                accomplishments: text,
+                attachments: [...temporaryAttachments]
+            };
+
+            workLogs.unshift(newLog);
+            saveAllData();
+
+            // Clear Form Inputs
+            document.getElementById('manual-hours').value = '';
+            document.getElementById('manual-minutes').value = '';
+            document.getElementById('manual-text').value = '';
+            document.getElementById('selected-files-preview').innerHTML = '';
+            temporaryAttachments = [];
+
+            // UI updates
+            recalculateDashboard();
+            renderLogsTable();
+            renderMediaVault();
+
+            showToast('تم تسجيل فترة العمل اليدوية واحتسابها ضمن رصيد سعاتك.', 'success');
+        }
+
+        // --- Core Calculations and Dashboard Renderer ---
+        function recalculateDashboard() {
+            // Hours counts - Start with prior manually added hours
+            let weeklyHoursDone = priorWeeklyHours;
+            let monthlyHoursDone = priorMonthlyHours;
+            let totalSeconds = 0;
+
+            const now = new Date();
+            
+            // Start of current week (assuming Saturday is first day in Minhaj)
+            const currentWeekStart = getStartOfWeek(now);
+            const currentMonthStart = new Date(now.getFullYear(), now.getMonth(), 1);
+
+            workLogs.forEach(log => {
+                const logDate = new Date(log.date);
+                totalSeconds += log.seconds;
+
+                // Check if inside this week
+                if (logDate >= currentWeekStart) {
+                    weeklyHoursDone += log.hours;
+                }
+                // Check if inside this month
+                if (logDate >= currentMonthStart) {
+                    monthlyHoursDone += log.hours;
+                }
+            });
+
+            // 1. Weekly Progress calculations
+            const remainingWeekly = Math.max(0, weeklyTargetHours - weeklyHoursDone);
+            const weeklyPercent = Math.min(100, (weeklyHoursDone / weeklyTargetHours) * 100);
+            
+            document.getElementById('weekly-remaining-text').innerHTML = `${remainingWeekly.toFixed(2)} <span class="text-sm font-normal text-gray-400">ساعة</span>`;
+            document.getElementById('weekly-percent').innerText = `${weeklyPercent.toFixed(0)}% منجز`;
+            document.getElementById('weekly-progress-bar').style.width = `${weeklyPercent}%`;
+            document.getElementById('weekly-done').innerText = `${weeklyHoursDone.toFixed(2)} س`;
+
+            // 2. Monthly Progress calculations
+            const remainingMonthly = Math.max(0, monthlyTargetHours - monthlyHoursDone);
+            const monthlyPercent = Math.min(100, (monthlyHoursDone / monthlyTargetHours) * 100);
+
+            document.getElementById('monthly-remaining-text').innerHTML = `${remainingMonthly.toFixed(2)} <span class="text-sm font-normal text-gray-400">ساعة</span>`;
+            document.getElementById('monthly-percent').innerText = `${monthlyPercent.toFixed(0)}% منجز`;
+            document.getElementById('monthly-progress-bar').style.width = `${monthlyPercent}%`;
+            document.getElementById('monthly-done').innerText = `${monthlyHoursDone.toFixed(2)} س`;
+
+            // 3. Stats details
+            document.getElementById('total-sessions-count').innerHTML = `${workLogs.length} <span class="text-sm font-normal text-gray-400">جلسة</span>`;
+            
+            let avgSeconds = 0;
+            if (workLogs.length > 0) {
+                avgSeconds = totalSeconds / workLogs.length;
+            }
+            const avgMins = Math.round(avgSeconds / 60);
+            document.getElementById('avg-session-duration').innerText = `${avgMins} د`;
+        }
+
+        // Helper: Find Start of Islamic Work Week (Saturday)
+        function getStartOfWeek(date) {
+            const d = new Date(date);
+            const day = d.getDay();
+            // Saturday in getDay() is 6. Let's find days to subtract to go back to Saturday.
+            // Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6.
+            const diff = (day + 1) % 7; 
+            d.setDate(d.getDate() - diff);
+            d.setHours(0, 0, 0, 0);
+            return d;
+        }
+
+        // --- Table Rendering and Filtering ---
+        function filterLogs(filterType) {
+            currentFilter = filterType;
+            
+            // Style active filters
+            const filters = ['all', 'today', 'week', 'month'];
+            filters.forEach(f => {
+                const btn = document.getElementById(`filter-${f}`);
+                if (f === filterType) {
+                    btn.className = "bg-islamic-500 text-white text-xs py-1.5 px-3 rounded-lg font-medium transition";
+                } else {
+                    btn.className = "bg-gray-100 text-gray-600 hover:bg-gray-200 text-xs py-1.5 px-3 rounded-lg font-medium transition";
+                }
+            });
+
+            renderLogsTable();
+        }
+
+        function renderLogsTable() {
+            const tbody = document.getElementById('logs-list');
+            const emptyState = document.getElementById('logs-empty-state');
+            tbody.innerHTML = '';
+
+            let filteredList = [...workLogs];
+            const now = new Date();
+
+            if (currentFilter === 'today') {
+                const todayStr = now.toDateString();
+                filteredList = filteredList.filter(log => new Date(log.date).toDateString() === todayStr);
+            } else if (currentFilter === 'week') {
+                const weekStart = getStartOfWeek(now);
+                filteredList = filteredList.filter(log => new Date(log.date) >= weekStart);
+            } else if (currentFilter === 'month') {
+                const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
+                filteredList = filteredList.filter(log => new Date(log.date) >= monthStart);
+            }
+
+            if (filteredList.length === 0) {
+                emptyState.classList.remove('hidden');
+                document.getElementById('logs-table').classList.add('hidden');
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+            document.getElementById('logs-table').classList.remove('hidden');
+
+            filteredList.forEach(log => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-islamic-50/20 transition border-b border-gray-50";
+
+                const logDate = new Date(log.date);
+                const formattedDate = logDate.toLocaleDateString('ar-EG', { year: 'numeric', month: 'short', day: 'numeric' });
+                const formattedTime = logDate.toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' });
+
+                // Render Attachments list column
+                let attachmentsHtml = '<span class="text-xs text-gray-400">—</span>';
+                if (log.attachments && log.attachments.length > 0) {
+                    attachmentsHtml = `<div class="flex flex-wrap gap-1">`;
+                    log.attachments.forEach(file => {
+                        let icon = 'fa-file';
+                        if (file.type.startsWith('image/')) icon = 'fa-image';
+                        else if (file.type.includes('pdf')) icon = 'fa-file-pdf';
+
+                        attachmentsHtml += `
+                            <button onclick="viewMediaAttachment('${log.id}', '${file.id}')" class="text-[11px] bg-islamic-50 text-islamic-600 py-0.5 px-2 rounded hover:bg-islamic-100 flex items-center gap-1 transition font-medium" title="${file.name}">
+                                <i class="fa-regular ${icon}"></i> المعاينة والذكاء
+                            </button>
+                        `;
+                    });
+                    attachmentsHtml += `</div>`;
+                }
+
+                // Hours and Minutes formatter for representation
+                const durationHrs = Math.floor(log.seconds / 3600);
+                const durationMins = Math.round((log.seconds % 3600) / 60);
+                let durationStr = '';
+                if (durationHrs > 0) durationStr += `${durationHrs} س `;
+                if (durationMins > 0) durationStr += `${durationMins} د`;
+                if (durationHrs === 0 && durationMins === 0) durationStr = `${log.seconds} ثانية`;
+
+                tr.innerHTML = `
+                    <td class="py-3 px-4">
+                        <div class="font-semibold text-gray-800">${formattedDate}</div>
+                        <div class="text-[11px] text-gray-400">${formattedTime}</div>
+                    </td>
+                    <td class="py-3 px-4">
+                        <span class="inline-block text-xs font-semibold py-0.5 px-2.5 rounded-full ${log.type === 'مُؤقت' ? 'bg-emerald-50 text-emerald-700 border border-emerald-100' : 'bg-blue-50 text-blue-700 border border-blue-100'}">
+                            ${log.type}
+                        </span>
+                    </td>
+                    <td class="py-3 px-4 font-mono font-bold text-islamic-500">${durationStr}</td>
+                    <td class="py-3 px-4 text-gray-600 max-w-[250px] truncate" title="${log.accomplishments}">${log.accomplishments}</td>
+                    <td class="py-3 px-4">${attachmentsHtml}</td>
+                    <td class="py-3 px-4 text-center">
+                        <button onclick="deleteLogEntry('${log.id}')" class="text-red-500 hover:text-red-700 transition" title="حذف الجلسة">
+                            <i class="fa-regular fa-trash-can"></i>
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Delete specific log entry with UI confirmation
+        function deleteLogEntry(id) {
+            showConfirmation('تأكيد حذف الجلسة', 'هل أنت متأكد من حذف هذه الجلسة؟ سيتم التراجع عن خصم الساعات المرتبطة بها.', () => {
+                workLogs = workLogs.filter(log => log.id !== id);
+                saveAllData();
+                recalculateDashboard();
+                renderLogsTable();
+                renderMediaVault();
+                showToast('تم حذف الجلسة وإعادة ضبط الساعات المتبقية.', 'info');
+            });
+        }
+
+        // --- Document and Media Vault Gallery renderer ---
+        function renderMediaVault() {
+            const grid = document.getElementById('media-vault-grid');
+            const emptyState = document.getElementById('media-vault-empty');
+            const totalBadge = document.getElementById('total-attachments-badge');
+            
+            grid.innerHTML = '';
+            let allAttachments = [];
+
+            workLogs.forEach(log => {
+                if (log.attachments && log.attachments.length > 0) {
+                    log.attachments.forEach(att => {
+                        // Keep track of parent log ID to retrieve it
+                        allAttachments.push({ ...att, logId: log.id });
+                    });
+                }
+            });
+
+            totalBadge.innerText = `${allAttachments.length} ملف`;
+
+            if (allAttachments.length === 0) {
+                emptyState.classList.remove('hidden');
+                grid.classList.add('hidden');
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+            grid.classList.remove('hidden');
+
+            allAttachments.forEach(file => {
+                const item = document.createElement('div');
+                item.className = "bg-islamic-50/40 border border-islamic-100 rounded-xl p-3 flex flex-col items-center justify-between text-center relative group hover:shadow-md transition cursor-pointer";
+                item.onclick = () => viewMediaAttachment(file.logId, file.id);
+
+                let previewHtml = '';
+                if (file.type.startsWith('image/')) {
+                    previewHtml = `<div class="w-full h-20 overflow-hidden rounded-lg bg-gray-100 mb-2 flex items-center justify-center">
+                        <img src="${file.data}" class="object-cover w-full h-full" alt="${file.name}">
+                    </div>`;
+                } else {
+                    let icon = 'fa-file-lines';
+                    let iconColor = 'text-islamic-gold';
+                    if (file.type.includes('pdf')) {
+                        icon = 'fa-file-pdf';
+                        iconColor = 'text-red-400';
+                    }
+                    previewHtml = `<div class="w-full h-20 rounded-lg bg-islamic-100/30 flex items-center justify-center mb-2">
+                        <i class="fa-regular ${icon} text-3xl ${iconColor}"></i>
+                    </div>`;
+                }
+
+                item.innerHTML = `
+                    ${previewHtml}
+                    <p class="text-xs font-semibold text-gray-800 w-full truncate mb-0.5" title="${file.name}">${file.name}</p>
+                    <span class="text-[10px] text-gray-400">${file.size}</span>
+                `;
+                grid.appendChild(item);
+            });
+        }
+
+        // --- Media Viewer Lightbox Controls ---
+        function viewMediaAttachment(logId, fileId) {
+            const parentLog = workLogs.find(log => log.id === logId);
+            if (!parentLog) return;
+            const file = parentLog.attachments.find(att => att.id === fileId);
+            if (!file) return;
+
+            // Set state variables for active analysis
+            activeViewerLogId = logId;
+            activeViewerFileId = fileId;
+
+            const modal = document.getElementById('media-viewer-modal');
+            const img = document.getElementById('media-viewer-image');
+            const fallback = document.getElementById('media-viewer-fallback');
+            const downloadBtn = document.getElementById('media-viewer-download');
+            const aiVisionOutput = document.getElementById('ai-vision-output');
+
+            // Reset AI Output preview
+            aiVisionOutput.innerHTML = `<span class="text-gray-400 italic">اضغط على الزر أدناه لتشغيل الرؤية والتحليل الذكي...</span>`;
+
+            document.getElementById('media-viewer-title').innerText = `تفاصيل المرفق: ${file.name}`;
+            downloadBtn.href = file.data;
+            downloadBtn.download = file.name;
+
+            if (file.type.startsWith('image/')) {
+                img.src = file.data;
+                img.classList.remove('hidden');
+                fallback.classList.add('hidden');
+            } else {
+                img.classList.add('hidden');
+                fallback.classList.remove('hidden');
+                document.getElementById('media-viewer-filename').innerText = file.name;
+                document.getElementById('media-viewer-size').innerText = `حجم الملف: ${file.size}`;
+            }
+
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.querySelector('div').classList.remove('scale-95');
+        }
+
+        function closeMediaViewer() {
+            const modal = document.getElementById('media-viewer-modal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modal.querySelector('div').classList.add('scale-95');
+            
+            // Clear tracking variables
+            activeViewerLogId = null;
+            activeViewerFileId = null;
+        }
+
+        // --- Export & Report Utilities ---
+        function exportLogsToCSV() {
+            if (workLogs.length === 0) {
+                showToast('لا توجد بيانات عمل لتصديرها.', 'info');
+                return;
+            }
+
+            let csvContent = "data:text/csv;charset=utf-8,\uFEFF"; // Include BOM for proper Excel Arabic reading
+            csvContent += "التاريخ,طبيعة الجلسة,المدة (ساعات),أبرز الإنجازات\n";
+
+            workLogs.forEach(log => {
+                const date = new Date(log.date).toLocaleString('ar-EG');
+                const cleanDesc = log.accomplishments.replace(/,/g, ' - ').replace(/\n/g, ' ');
+                csvContent += `"${date}","${log.type}","${log.hours.toFixed(2)}","${cleanDesc}"\n`;
+            });
+
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", `تقرير_عمل_منهاج_${new Date().toLocaleDateString('ar-EG')}.csv`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            showToast('تم توليد وتنزيل ملف التقرير بنجاح.', 'success');
+        }
+
+        function exportLogsToPDF() {
+            // Simply trigger print format which is highly optimized for minimalist design
+            window.print();
+        }
+
+        // --- Custom Confirm & Custom Alert Modals ---
+        function showConfirmation(title, message, onOk) {
+            const dialog = document.getElementById('confirmation-dialog');
+            document.getElementById('confirm-title').innerText = title;
+            document.getElementById('confirm-message').innerText = message;
+
+            const cancelBtn = document.getElementById('confirm-cancel-btn');
+            const okBtn = document.getElementById('confirm-ok-btn');
+
+            const closeFn = () => {
+                dialog.classList.add('opacity-0', 'pointer-events-none');
+                dialog.querySelector('div').classList.add('scale-95');
+            };
+
+            cancelBtn.onclick = closeFn;
+            okBtn.onclick = () => {
+                onOk();
+                closeFn();
+            };
+
+            dialog.classList.remove('opacity-0', 'pointer-events-none');
+            dialog.querySelector('div').classList.remove('scale-95');
+        }
+
+        function resetAllDataConfirmation() {
+            showConfirmation(
+                'تأكيد تصفير المنصة بالكامل',
+                'تحذير! سيؤدي هذا الإجراء إلى مسح جميع السجلات وجلسات العمل والملفات المرفقة نهائياً من متصفحك. هل تود الاستمرار؟',
+                () => {
+                    localStorage.removeItem('minhaj_work_logs');
+                    localStorage.removeItem('minhaj_weekly_target');
+                    localStorage.removeItem('minhaj_monthly_target');
+                    localStorage.removeItem('minhaj_prior_weekly');
+                    localStorage.removeItem('minhaj_prior_monthly');
+                    workLogs = [];
+                    weeklyTargetHours = 24;
+                    monthlyTargetHours = 96;
+                    priorWeeklyHours = 0;
+                    priorMonthlyHours = 0;
+                    document.getElementById('input-weekly-target').value = 24;
+                    document.getElementById('input-monthly-target').value = 96;
+                    document.getElementById('input-prior-weekly').value = 0;
+                    document.getElementById('input-prior-monthly').value = 0;
+                    
+                    recalculateDashboard();
+                    renderLogsTable();
+                    renderMediaVault();
+                    showToast('تم مسح جميع البيانات بنجاح.', 'info');
+                }
+            );
+        }
+
+        // --- Custom Elegant Notification System ---
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            
+            let bgClass = 'bg-white border-blue-100 text-blue-700';
+            let iconClass = 'fa-circle-info';
+            
+            if (type === 'success') {
+                bgClass = 'bg-emerald-50 border-emerald-200 text-emerald-800';
+                iconClass = 'fa-solid fa-circle-check text-islamic-gold';
+            } else if (type === 'warning') {
+                bgClass = 'bg-amber-50 border-amber-200 text-amber-800';
+                iconClass = 'fa-solid fa-triangle-exclamation';
+            } else if (type === 'error') {
+                bgClass = 'bg-red-50 border-red-200 text-red-800';
+                iconClass = 'fa-solid fa-circle-xmark';
+            }
+
+            toast.className = `flex items-center gap-3 py-3.5 px-5 rounded-2xl shadow-lg border text-sm max-w-sm w-full transition duration-300 transform translate-y-2 opacity-0 ${bgClass}`;
+            toast.innerHTML = `
+                <i class="${iconClass} text-lg"></i>
+                <div class="flex-grow font-medium">${message}</div>
+            `;
+            
+            container.appendChild(toast);
+            
+            // Animate In
+            setTimeout(() => {
+                toast.classList.remove('translate-y-2', 'opacity-0');
+            }, 50);
+
+            // Close trigger
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-2');
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
